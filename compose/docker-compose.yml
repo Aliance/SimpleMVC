@@ -1,0 +1,12 @@
+app:
+    container_name: SimpleMVC
+    image: aliance/kanchanaburi-base:latest
+    volumes:
+        - /var/log/simplemvc/nginx:/var/log/nginx
+        - /var/log/simplemvc/php-fpm:/var/log/php5-fpm
+        - ..:/var/www/project
+    ports:
+        - "8888:80"
+    environment:
+        APPLICATION_PLATFORM: "dev"
+        APPLICATION_SERVER: "docker"
