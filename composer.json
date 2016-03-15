@@ -1,6 +1,6 @@
 {
   "require": {
-    "Aliance/Kanchanaburi": "0.1"
+    "Aliance/Kanchanaburi": "*"
   },
   "repositories": [
     {
