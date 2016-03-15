@@ -10,8 +10,7 @@ use Aliance\Kanchanaburi\Error\ErrorHandler;
 
 /** @param Exception $Ex */
 $ExceptionHandler = function(Exception $Ex) {
-    echo $Ex->getMessage(), ' - ', $Ex->getTraceAsString(), PHP_EOL;
-    //LoggerFactory::getRootLogger()->emergency($Ex);
+    echo 'Error: ', $Ex->getMessage(), PHP_EOL;
     exit(ERROR_USER);
 };
 /** @var Closure $ExceptionHandler */
@@ -20,8 +19,7 @@ ErrorHandler::getInstance()->setPhpFatalExceptionHandler($ExceptionHandler);
 $Application = ApplicationFactory::getInstance()->createApplication();
 
 if ($Application === NULL) {
-    echo 'Application not found', PHP_EOL;
-    //LoggerFactory::getRootLogger()->emergency('Application not found');
+    echo 'Error: Application not found', PHP_EOL;
     exit(ERROR_APPLICATION);
 }
 
