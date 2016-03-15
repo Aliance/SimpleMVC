@@ -1,0 +1,66 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "0881bbd246ddc48a3d8a05fd3efccfbc",
+    "content-hash": "c37ab8ec4e34b633ffec055eb2ecd238",
+    "packages": [
+        {
+            "name": "Aliance/Kanchanaburi",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aliance/Kanchanaburi.git",
+                "reference": "724b81747b0318ebf75ad2ff55aaf53d10a9c479"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aliance/Kanchanaburi/zipball/724b81747b0318ebf75ad2ff55aaf53d10a9c479",
+                "reference": "724b81747b0318ebf75ad2ff55aaf53d10a9c479",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aliance\\Kanchanaburi\\": "source/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lesnykh Ilia",
+                    "email": "lesnykh.ilja@gmail.com"
+                }
+            ],
+            "description": "A simple PHP MVC framework",
+            "keywords": [
+                "docker",
+                "framework",
+                "mvc",
+                "nginx",
+                "php"
+            ],
+            "support": {
+                "email": "lesnykh.ilja@gmail.com",
+                "issues": "https://github.com/Aliance/Kanchanaburi/issues",
+                "source": "https://github.com/Aliance/Kanchanaburi/tree/v0.1"
+            },
+            "time": "2016-03-15 08:34:13"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
