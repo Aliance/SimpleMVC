@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "Aliance/Kanchanaburi",
-            "version": "v0.2",
+            "version": "v0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aliance/Kanchanaburi.git",
-                "reference": "d8e18b4f8f08ec8bbb80fb289adcf21ba78f3e1f"
+                "reference": "c1c5a6ae2213db10f6d3c3604d9a2ef82ee6ab1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aliance/Kanchanaburi/zipball/d8e18b4f8f08ec8bbb80fb289adcf21ba78f3e1f",
-                "reference": "d8e18b4f8f08ec8bbb80fb289adcf21ba78f3e1f",
+                "url": "https://api.github.com/repos/Aliance/Kanchanaburi/zipball/c1c5a6ae2213db10f6d3c3604d9a2ef82ee6ab1a",
+                "reference": "c1c5a6ae2213db10f6d3c3604d9a2ef82ee6ab1a",
                 "shasum": ""
             },
             "require-dev": {
@@ -50,9 +50,9 @@
             "support": {
                 "email": "lesnykh.ilja@gmail.com",
                 "issues": "https://github.com/Aliance/Kanchanaburi/issues",
-                "source": "https://github.com/Aliance/Kanchanaburi/tree/v0.2"
+                "source": "https://github.com/Aliance/Kanchanaburi/tree/v0.3"
             },
-            "time": "2016-03-15 10:43:51"
+            "time": "2016-03-15 11:11:37"
         }
     ],
     "packages-dev": [],
