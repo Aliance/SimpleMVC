@@ -1,4 +1,4 @@
-<?php /** @var alxmsl\Core\Nginx\Template\Web\WebNginxConfigTemplate $this */ ?>
+<?php /** @var Aliance\Kanchanaburi\Nginx\Template\Web\WebNginxConfigTemplate $this */ ?>
 # http://nginx.org/ru/docs/http/websocket.html
 map $http_upgrade $connection_upgrade {
     default upgrade;
@@ -16,9 +16,12 @@ server {
 
     charset utf-8;
 
-    set $_application_root          "<?= APPLICATION_ROOT ?>";
-    set $_application_platform      "<?= APPLICATION_PLATFORM ?>";
-    set $_fastcgi_script_name       bootstrap.php;
+    set $_application_root     "<?= APPLICATION_ROOT ?>";
+    set $_application_project  "<?= APPLICATION_PROJECT ?>";
+    set $_application_revision "<?= APPLICATION_REVISION ?>";
+    set $_application_platform "<?= APPLICATION_PLATFORM ?>";
+    set $_application_server   "<?= APPLICATION_SERVER ?>";
+    set $_fastcgi_script_name  bootstrap.php;
     root /dev/null;
 
     error_page 404 /error/404/;
