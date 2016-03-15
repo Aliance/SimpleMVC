@@ -1,4 +1,25 @@
 #!/bin/sh
 
-./bin/autoload_map_generator
-./bin/create_nginx_config
+if [ "$APPLICATION_SERVER" = "docker" ]; then
+    ./bin/autoload_map_generator
+    ./bin/create_nginx_config
+    exit
+fi
+
+# run docker app container
+docker-compose -f ./compose/docker-compose.yml up -d
+
+# add container www-data user to your local user group
+docker exec -it SimpleMVC usermod -u `id -u` www-data
+docker exec -it SimpleMVC groupmod -g `id -g` www-data
+
+# remove old configs
+docker exec -it SimpleMVC rm -f /var/www/project/config/dynamic/classes
+docker exec -it SimpleMVC rm -f /var/www/project/config/dynamic/nginx.config
+
+# generate nginx config
+docker exec -it SimpleMVC bash -c "cd /var/www/project && ./bin/init"
+
+# reload nginx & php-fpm
+docker exec -it SimpleMVC bash -c "sv reload nginx php-fpm"
+
