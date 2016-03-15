@@ -30,7 +30,7 @@ server {
     location / {
         location = / {
             fastcgi_pass         "<?= $this->fastcgi ?>";
-            fastcgi_param page   Kanchanaburi.Index.IndexController;
+            fastcgi_param page   SimpleMVC.Index.IndexController;
             fastcgi_param action index;
 
             include "<?= FILE_FASTCGI_CONFIG ?>";
@@ -43,7 +43,7 @@ server {
         location /error/ {
             location = /error/404/ {
                 fastcgi_pass         "<?= $this->fastcgi ?>";
-                fastcgi_param page   Kanchanaburi.Error.ErrorController;
+                fastcgi_param page   SimpleMVC.Error.ErrorController;
                 fastcgi_param action notFound;
 
                 include "<?= FILE_FASTCGI_CONFIG ?>";
@@ -52,7 +52,7 @@ server {
             }
             location = /error/50x/ {
                 fastcgi_pass         "<?= $this->fastcgi ?>";
-                fastcgi_param page   Kanchanaburi.Error.ErrorController;
+                fastcgi_param page   SimpleMVC.Error.ErrorController;
                 fastcgi_param action internal;
 
                 include "<?= FILE_FASTCGI_CONFIG ?>";
