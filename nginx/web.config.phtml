@@ -1,0 +1,61 @@
+<?php /** @var alxmsl\Core\Nginx\Template\Web\WebNginxConfigTemplate $this */ ?>
+# http://nginx.org/ru/docs/http/websocket.html
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+
+server {
+    listen <?= $this->listen ?>;
+    server_name <?= implode(' ', $this->names); ?>;
+
+    client_max_body_size 5m;
+
+    access_log  <?= PATH_LOG ?>nginx.access.log;
+    error_log   <?= PATH_LOG ?>nginx.error.log;
+
+    charset utf-8;
+
+    set $_application_root          "<?= APPLICATION_ROOT ?>";
+    set $_application_platform      "<?= APPLICATION_PLATFORM ?>";
+    set $_fastcgi_script_name       bootstrap.php;
+    root /dev/null;
+
+    error_page 404 /error/404/;
+    error_page 500 501 502 503 504 /error/50x/;
+
+    location / {
+        location = / {
+            fastcgi_pass         "<?= $this->fastcgi ?>";
+            fastcgi_param page   Kanchanaburi.Index.IndexController;
+            fastcgi_param action index;
+
+            include "<?= FILE_FASTCGI_CONFIG ?>";
+            include "<?= FILE_NOCACHE_CONFIG ?>";
+        }
+
+        location = /favicon.ico {
+            alias <?= PATH_STATICS ?>images/favicon.ico;
+        }
+        location /error/ {
+            location = /error/404/ {
+                fastcgi_pass         "<?= $this->fastcgi ?>";
+                fastcgi_param page   Kanchanaburi.Error.ErrorController;
+                fastcgi_param action notFound;
+
+                include "<?= FILE_FASTCGI_CONFIG ?>";
+
+                internal;
+            }
+            location = /error/50x/ {
+                fastcgi_pass         "<?= $this->fastcgi ?>";
+                fastcgi_param page   Kanchanaburi.Error.ErrorController;
+                fastcgi_param action internal;
+
+                include "<?= FILE_FASTCGI_CONFIG ?>";
+
+                internal;
+            }
+        }
+    }
+}

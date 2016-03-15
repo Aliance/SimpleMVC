@@ -1,0 +1,4 @@
+#!/bin/sh
+
+./bin/autoload_map_generator
+./bin/create_nginx_config

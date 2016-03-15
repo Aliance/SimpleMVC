@@ -1,0 +1,18 @@
+<?php /** @var $this alxmsl\Core\Nginx\Template\Statics\StaticsNginxConfigTemplate */ ?>
+server {
+    listen <?= $this->listen ?>;
+    server_name <?= implode(' ', $this->names); ?>;
+
+    sendfile off;
+    client_max_body_size 5m;
+    access_log  <?= PATH_LOG ?>statics-nginx.access.log;
+    error_log   <?= PATH_LOG ?>statics-nginx.error.log;
+
+    set $_statics_root "<?= PATH_STATICS ?>";
+
+    add_header Access-Control-Allow-Origin *;
+
+    location / {
+        root $_statics_root;
+    }
+}

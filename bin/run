@@ -1,0 +1,11 @@
+#!/bin/sh
+
+BASEDIR=$(dirname $0)
+ROOT_PATH=$(cd $BASEDIR/../ && pwd)
+REVISION_FILE=".revision"
+REVISION=$(cat $REVISION_FILE)
+
+/usr/bin/env APPLICATION_ROOT=${ROOT_PATH}/  \
+             APPLICATION_PROJECT="SimpleMVC" \
+             APPLICATION_REVISION=$REVISION  \
+php $BASEDIR/../bootstrap.php "$@"

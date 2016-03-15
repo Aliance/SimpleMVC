@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./bin/run "$@" --script=Aliance.Kanchanaburi.Autoload.Script.AutoloadMapGeneratorScript
